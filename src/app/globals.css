@@ -2,6 +2,8 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font: inherit;
 }
@@ -11,6 +13,11 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
