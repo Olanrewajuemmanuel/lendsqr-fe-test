@@ -1,3 +1,4 @@
+import styles from "@/components/Dashboard/styles.module.scss"
 import Header from "@/components/UI/Header";
 import SideBar from "@/components/UI/SideBar";
 import type { Metadata } from "next";
@@ -16,9 +17,9 @@ export default function DashboardLayout({
     return (
         <>
             <Header />
-            <div style={{ display: "flex" }}>
+            <div className={styles.flex}>
                 <SideBar />
-                <main>
+                <main className={styles.main}>
                     {children}
                 </main>
             </div>

@@ -1,5 +1,8 @@
 @import "../../styles/globals.scss";
 
-.dashboard {
+.main {
+  --padding: 3.75rem;
   background: #fbfbfb;
+  min-width: 100%;
+  padding: var(--padding);
 }

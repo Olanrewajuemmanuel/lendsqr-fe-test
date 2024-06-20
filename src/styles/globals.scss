@@ -74,6 +74,10 @@ $fs-large--two: 1.375rem;
   justify-content: space-around;
 }
 
+.flex {
+  display: flex;
+}
+
 .button {
   min-width: min(447px, 100%);
   height: 50px;
