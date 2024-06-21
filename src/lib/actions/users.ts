@@ -3,6 +3,11 @@ import { Status } from "@/types";
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
 
+const adminUser = new Map();
+adminUser.set("username", "adedeji");
+adminUser.set("email", "adedeji@lendsqr.com");
+adminUser.set("password", "lendsqr-test");
+
 export async function getLocalJson() {
   const filePath = path.join(process.cwd(), "public/users.json");
   const buffer = await readFile(filePath, { encoding: "utf-8" });
@@ -12,6 +17,17 @@ export async function getLocalJson() {
 async function _updateLocalJson(data: any) {
   const filePath = path.join(process.cwd(), "public/users.json");
   await writeFile(filePath, JSON.stringify(data), { encoding: "utf-8" });
+}
+
+export async function login(email: string, password: string) {
+  // Mock API call to DB
+  if (email.toLowerCase() === adminUser.get("email")) {
+    // compare passwords
+    if (!password === adminUser.get("password")) return false;
+    return adminUser; // login successful
+  } else {
+    return false;
+  }
 }
 
 export async function findAll(limitEnd: number, limitStart?: number) {

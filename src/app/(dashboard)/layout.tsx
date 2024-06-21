@@ -1,3 +1,4 @@
+import AuthProvider from "@/components/AuthProvider";
 import styles from "@/components/Dashboard/styles.module.scss"
 import Header from "@/components/UI/Header";
 import SideBar from "@/components/UI/SideBar";
@@ -15,7 +16,7 @@ export default function DashboardLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <>
+        <AuthProvider>
             <Header />
             <div className={styles.flex}>
                 <SideBar />
@@ -24,6 +25,6 @@ export default function DashboardLayout({
                 </main>
             </div>
 
-        </>
+        </AuthProvider>
     );
 }
