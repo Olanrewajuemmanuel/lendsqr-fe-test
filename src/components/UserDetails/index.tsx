@@ -6,21 +6,37 @@ import { Status, User } from "@/types";
 import ImageWithFallback from "../UI/ImageWithFallback";
 import StarRating from "../UI/StarRating";
 import Tab from "../Tab";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Summary from "../UI/Summary";
 import { updateByStatus } from "@/lib/actions/users";
 
-export default function UserDetail({ user }: { user: User }) {
+export default function UserDetail({ userId }: { userId: string }) {
     const [currDisplayIndex, setCurrDisplayIndex] = useState(0);
     const [message, setMessage] = useState('');
+    const [user, setUser] = useState<any>({});
 
-    if (!user._id) return <div className={styles.notFound}>User does not exist</div>
+    useEffect(() => {
+        function findByUsernameInLocalStorage(username: string) {
+            const userRecordsDB = localStorage.getItem("userRecords");
+            if (!userRecordsDB) {
+                return;
+            }
+
+            const userRecords = JSON.parse(userRecordsDB);
+            const user = userRecords.find((user: { username: string; }) => user.username === username);
+            setUser(user);
+        }
+        findByUsernameInLocalStorage(userId);
+    }, [userId])
+
 
     const handleUserUpdate = async (id: string, type: Status) => {
         await updateByStatus(id, type);
         setMessage(`User is ${type === Status.blacklist ? 'blacklisted' : type}`);
         setTimeout(() => setMessage(""), 3000)
     }
+
+    if (!user) return <div className={styles.notFound}>User does not exist!</div>
 
     return (
         <div className={styles.container}>
@@ -35,7 +51,7 @@ export default function UserDetail({ user }: { user: User }) {
             <div className={styles.profileContainer}>
                 <div className={styles.profile}>
                     <div className={styles.left}>
-                        <ImageWithFallback src={user.picture ?? ''} fallbackSrc={GenericProfileImg} alt="" width={100} height={100}></ImageWithFallback>
+                        <ImageWithFallback src={user.picture} fallbackSrc={GenericProfileImg} alt="" width={100} height={100}></ImageWithFallback>
                         <div>
                             <h2>{user.name}</h2>
                             <p>{user.guid?.slice(0, 11)}</p>

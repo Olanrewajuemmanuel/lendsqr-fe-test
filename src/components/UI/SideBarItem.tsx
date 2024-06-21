@@ -5,7 +5,7 @@ interface SideBarItemProp {
     iconBefore?: any;
     text: string;
     iconAfter?: any;
-    linkTo: string;
+    linkTo?: string;
 
 }
 
