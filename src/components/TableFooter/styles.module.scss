@@ -1,0 +1,39 @@
+@import "../../styles/globals.scss";
+
+.tableFooter {
+  @include even-columns;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 20px;
+
+  div {
+    @extend .text-sm;
+    display: flex;
+    gap: 1rem;
+    &:first-child {
+      select {
+        cursor: pointer;
+        background-color: #213f7d1a;
+        color: $clr-secondary;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 0.2em 0.6em;
+        outline: 0;
+        border: 0;
+      }
+    }
+  }
+}
+
+.pagination {
+  position: relative;
+  .dropDown {
+    @extend .shadow-md;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    background: #fff;
+    top: 10%;
+  }
+}

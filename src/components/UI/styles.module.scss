@@ -5,6 +5,7 @@
   align-items: center;
   padding-inline: 1.875rem 3.175rem;
   padding-block: 1.875em;
+  box-shadow: 3px 0px 5px #fcfafa;
   a {
     min-width: 144.8px !important;
     display: block;
@@ -83,7 +84,6 @@
 
 .sidebar {
   min-width: clamp(250px, 283px, 300px);
-  //   padding-inline: 1.875rem;
   box-shadow: 3px 0px 5px #fcfafa;
 
   section {
@@ -127,6 +127,90 @@
     svg {
       width: 1rem;
       margin-inline: 10px;
+    }
+  }
+}
+
+.userRow {
+  @extend .text-sm;
+
+  td {
+    padding-block: 1.438rem;
+    padding-inline: 3.125rem;
+    box-sizing: content-box;
+    border-bottom: 1px solid #213f7d1a;
+  }
+}
+
+.filterBtn {
+  margin-left: 0.625rem;
+  margin-block: auto;
+  height: 1rem;
+  aspect-ratio: 1;
+}
+
+.starContainer {
+  display: flex;
+  flex-direction: row;
+  .star {
+    margin: 0 2px;
+  }
+}
+
+.infoGroup {
+  margin-block: 0.2em;
+  h4 {
+    @extend .text-xsm;
+    text-transform: uppercase;
+    color: $clr-secondary;
+  }
+  p {
+    @extend .text-normal;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}
+
+.navBack {
+  @extend .text-sm;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  svg {
+    margin-right: 13px;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.tabList {
+  display: flex;
+  justify-content: space-between;
+  .activeTab {
+    color: #39cdcc;
+    border-bottom: 2px solid $clr-accent;
+  }
+
+  li {
+    list-style: none;
+    padding-block: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 2px solid $clr-accent;
+    }
+
+    button {
+      background: 0;
+      outline: 0;
+      border: 0;
+      a {
+        text-decoration: none;
+      }
     }
   }
 }

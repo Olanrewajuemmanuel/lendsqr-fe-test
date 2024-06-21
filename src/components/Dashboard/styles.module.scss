@@ -3,6 +3,7 @@
 .main {
   --padding: 3.75rem;
   background: #fbfbfb;
-  min-width: 100%;
+  width: calc(100% - 283px);
   padding: var(--padding);
+  // overflow: hidden;
 }

@@ -1,0 +1,10 @@
+@import "../../styles/globals.scss";
+
+.filterContainer {
+  @extend .shadow-md;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+  min-width: min(270px, 100%);
+  position: absolute;
+  z-index: 99;
+}

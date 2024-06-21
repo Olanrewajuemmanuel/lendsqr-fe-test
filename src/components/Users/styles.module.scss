@@ -1,0 +1,74 @@
+@import "../../styles/globals.scss";
+
+.usersContainer {
+  h3 {
+    @extend .text-lg;
+    color: $clr-primary;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+  > div {
+    display: flex;
+    align-items: center;
+    div {
+      background: #fff;
+      padding: 1.25em;
+      flex-basis: calc(100% / 4);
+      min-height: min(10rem, auto);
+      margin-block: 0.875rem;
+      box-shadow: 3px 5px 20px 0 #0000000a;
+      &:not(:last-child) {
+        margin-right: 1.625em;
+      }
+      img {
+        margin-bottom: 0.625rem;
+      }
+      p {
+        @extend .text-sm;
+        text-transform: uppercase;
+        margin-top: 12px;
+        &:last-child {
+          @extend .text-lg;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.section {
+  width: 100%;
+  > * {
+    display: block;
+  }
+  table {
+    background-color: #fff;
+    box-shadow: 3px 5px 20px 0 #0000000a;
+
+    thead {
+      background-color: red;
+
+      tr {
+        th {
+          width: 100%;
+          @extend .text-xsm;
+          background-color: lime;
+          position: relative;
+
+          font-weight: bold;
+          text-transform: uppercase;
+          text-align: left;
+          padding-block: 1.875rem;
+          padding-inline: 1rem;
+        }
+      }
+    }
+
+    button {
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      background-color: transparent;
+    }
+  }
+}
