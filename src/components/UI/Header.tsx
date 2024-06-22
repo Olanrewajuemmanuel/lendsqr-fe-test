@@ -17,7 +17,7 @@ export default function Header() {
     }, [])
     return (
         <header className={styles.header}>
-            <a href="/"><Image src={Logo} alt="" ></Image></a>
+            <a href="/"><Image src={Logo} alt="" width={144.8} ></Image></a>
             <form action="">
                 <div>
                     <input type="text" name="Search" id="" placeholder="Search for anything" />

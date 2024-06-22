@@ -65,8 +65,6 @@ export default function Users() {
     }
 
     async function handlePageChange(currIndex: number) {
-        console.log("I am receiveing", currIndex);
-
         const newStart = currIndex === 1 ? 0 : (currIndex * 10) % 500
         const users = await findAll(newStart + 10, newStart)
         setUserRows(users)
@@ -97,22 +95,20 @@ export default function Users() {
                     <p>{totalUsers.length}</p>
                 </div>
             </div>
-            <section className={styles.section}>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Organization <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} />
-                                {/* Set Filter view only on first child */}
-                                <Filter display={filterMode} onSubmit={handleSubmit} />
-                            </th>
-                            <th>Username <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></th>
-                            <th>Email <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></th>
-                            <th>Phone Number <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></th>
-                            <th>Date Joined <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></th>
-                            <th>Status <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <section className={styles.section} role="presentation">
+                <div className={styles.table} role="table">
+                    <div className={styles.thead}>
+                        <div className={styles.filter}><p>Organization </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} />
+                            {/* Set Filter view only on first child */}
+                            <Filter display={filterMode} onSubmit={handleSubmit} />
+                        </div>
+                        <div><p>Username </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
+                        <div><p>Email </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
+                        <div><p>Phone Number </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
+                        <div><p>Date Joined </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
+                        <div><p>Status </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
+                    </div>
+                    <div className={styles.tbody}>
                         {/* <!-- Rows of user data will go here --> */}
                         {
                             userRows.map(user =>
@@ -121,8 +117,8 @@ export default function Users() {
                                 </Suspense>
                             )
                         }
-                    </tbody>
-                </table>
+                    </div>
+                </div>
                 {/* Replace with custom number */}
                 <TableFooter rowsPerPage={10} onPageChange={handlePageChange} />
             </section>

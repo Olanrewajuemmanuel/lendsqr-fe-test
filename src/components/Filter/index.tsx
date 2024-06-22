@@ -1,8 +1,11 @@
 import { FormEvent, useEffect, useState } from "react";
 import styles from "./style.module.scss";
-import DatePicker from "react-date-picker";
+import DatePicker from "react-datepicker";
 import { findAll } from "@/lib/actions/organization"
 import { FormState } from "@/types";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 
 
 export default function Filter({ display, onSubmit }: Readonly<{ display: boolean, onSubmit: (reset: boolean, data: FormState) => void }>) {
@@ -60,10 +63,10 @@ export default function Filter({ display, onSubmit }: Readonly<{ display: boolea
 
     return (
         <form className={styles.filterContainer} onSubmit={handleSubmit}>
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="organisation">Organisation</label>
                 <select name="organisation" value={formData.organisation} onChange={handleChange}>
-                    <option value="">Select Organisation</option>
+                    <option value="">Select</option>
                     {
                         organisations.map((org, idx) =>
                             <option value={org} key={idx}>{org}</option>
@@ -71,37 +74,37 @@ export default function Filter({ display, onSubmit }: Readonly<{ display: boolea
                     }
                 </select>
             </div>
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="username">Username</label>
-                <input type="text" name="username" value={formData.username} onChange={handleChange} />
+                <input type="text" placeholder="User" name="username" value={formData.username} onChange={handleChange} />
             </div>
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="email">Email</label>
-                <input type="text" name="email" value={formData.email} onChange={handleChange} />
+                <input type="text" placeholder="Email" name="email" value={formData.email} onChange={handleChange} />
 
             </div>
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="date">Date</label>
-                <DatePicker onChange={(value) => handleDateChange(value)} value={formData.date} />
+                <DatePicker onChange={(value) => handleDateChange(value)} selected={formData.date} />
 
             </div>
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="phoneNumber">Phone number</label>
-                <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
+                <input type="tel" placeholder="Phone Number" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
             </div>
-            <div>
+            <div className={styles.formGroup}>
                 <label htmlFor="status">Status</label>
                 <select name="status" value={formData.status} onChange={handleChange}>
-                    <option value="">Status</option>
+                    <option value="">Select</option>
                     <option value="active">Active</option>
                     <option value="inactive">Inactive</option>
                     <option value="blacklist">Blacklist</option>
                     <option value="pending">Pending</option>
                 </select>
             </div>
-            <div>
+            <div className={styles.buttonGroup}>
                 <button type="reset" onClick={handleReset}>Reset</button>
-                <button type="submit">Apply Filters</button>
+                <button type="submit">Filter</button>
 
             </div>
         </form>

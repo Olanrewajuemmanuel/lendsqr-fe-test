@@ -40,6 +40,8 @@ export default function Login() {
 
         // on successful login, fetch user records and save in local storage
         const userRecords = await findAll(500);
+        setMessage("Login successful")
+        setTimeout(() => setMessage(''), 3000)
 
         localStorage.setItem('userRecords', JSON.stringify(userRecords));
         localStorage.setItem('lendsqrUser', user.get('username'));
@@ -56,12 +58,12 @@ export default function Login() {
                 <Image src={Pablo} alt="" width={600} />
             </div>
             <main className={styles.main}>
-                <p>{message}</p>
+                {message && <p className={styles.messageLogin}>{message}</p>}
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <h2 className={styles['text-heading']}>Welcome!</h2>
                     <p className={styles["welcome-p"]}>Enter details to login.</p>
                     <div>
-                        <input type="text" name="Email" placeholder="Email" id="" onChange={(e) => setEmail(e.target.value)} required />
+                        <input type="email" name="Email" placeholder="Email" id="" onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className={styles.relative}>
                         <input type={showPassword ? 'text' : 'password'} name="Password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />

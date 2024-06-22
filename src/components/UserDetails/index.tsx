@@ -32,7 +32,7 @@ export default function UserDetail({ userId }: { userId: string }) {
 
     const handleUserUpdate = async (id: string, type: Status) => {
         await updateByStatus(id, type);
-        setMessage(`User is ${type === Status.blacklist ? 'blacklisted' : type}`);
+        setMessage(`User is now ${type === Status.blacklist ? 'blacklisted' : type}`);
         setTimeout(() => setMessage(""), 3000)
     }
 
@@ -40,7 +40,7 @@ export default function UserDetail({ userId }: { userId: string }) {
 
     return (
         <div className={styles.container}>
-            <div>{message}</div>
+            {message && <div className={styles.message}>{message}</div>}
             <div className={styles.navigation}>
                 <h3>User Details</h3>
                 <div>
@@ -51,7 +51,10 @@ export default function UserDetail({ userId }: { userId: string }) {
             <div className={styles.profileContainer}>
                 <div className={styles.profile}>
                     <div className={styles.left}>
-                        <ImageWithFallback src={user.picture} fallbackSrc={GenericProfileImg} alt="" width={100} height={100}></ImageWithFallback>
+                        <div className={styles.imgWrapper}>
+                            <ImageWithFallback src={user.picture} fallbackSrc={GenericProfileImg} alt="" width={40} height={40}></ImageWithFallback>
+
+                        </div>
                         <div>
                             <h2>{user.name}</h2>
                             <p>{user.guid?.slice(0, 11)}</p>

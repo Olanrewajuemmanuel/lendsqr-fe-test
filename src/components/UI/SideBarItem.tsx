@@ -1,3 +1,4 @@
+import { usePathname } from "next/navigation";
 import styles from "./styles.module.scss";
 
 
@@ -10,8 +11,9 @@ interface SideBarItemProp {
 }
 
 export default function SideBarItem({ text, iconBefore, iconAfter, linkTo }: SideBarItemProp) {
+    const pathname = usePathname();
     return (
-        <a className={styles.sidebaritem} href={linkTo}>
+        <a className={`${styles.sidebaritem} ${pathname === linkTo ? styles.sidebaritemActive : ''} `} href={linkTo}>
             <div>{iconBefore}</div>
             <p>{text}</p>
             <div>{iconAfter}</div>

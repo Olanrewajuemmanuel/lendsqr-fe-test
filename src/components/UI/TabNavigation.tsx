@@ -1,6 +1,5 @@
 "use client";
 
-
 import styles from "./styles.module.scss";
 import { useState } from "react";
 
@@ -27,7 +26,7 @@ export default function TabNavigation({ tabs, onTabClick }: TabNavigationProps) 
         {tabs.map((tab, index) => (
           <li
             key={tab}
-            className={index === activeTab ? styles.activeTab : styles.tab}
+            className={index === activeTab ? styles.activeTab : ''}
           >
             <button onClick={() => handleTabClick(index)}>
               <a href={`#${tabs[activeTab]}`}>

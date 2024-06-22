@@ -5,5 +5,12 @@
   background: #fbfbfb;
   width: calc(100% - 283px);
   padding: var(--padding);
-  // overflow: hidden;
+  overflow: hidden;
+}
+
+.dashboardContainer {
+  h2 {
+    @extend .text-lg;
+    margin-block: 1.875rem;
+  }
 }

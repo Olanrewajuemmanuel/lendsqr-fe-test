@@ -4,7 +4,7 @@
   @include even-columns;
 
   background: linear-gradient(
-    to left,
+    to bottom left,
     $clr-neutral-shade--one,
     $clr-neutral-white
   );
@@ -14,7 +14,7 @@
 }
 
 .header {
-  padding: 4em 3em;
+  padding: 5em 3em;
 }
 
 .main {
@@ -71,4 +71,9 @@
   position: absolute;
   top: 35%;
   right: 35%;
+}
+
+.messageLogin {
+  @extend .message;
+  padding-top: 1rem;
 }

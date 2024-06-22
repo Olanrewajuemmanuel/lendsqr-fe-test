@@ -3,12 +3,13 @@
 .header {
   display: flex;
   align-items: center;
-  padding-inline: 1.875rem 3.175rem;
+  padding-inline: 1.875rem 3.75rem;
   padding-block: 1.875em;
   box-shadow: 3px 0px 5px #fcfafa;
   a {
-    min-width: 144.8px !important;
+    min-width: 144.8px;
     display: block;
+    flex-basis: 10.5em;
   }
 
   form {
@@ -17,13 +18,14 @@
 
     div {
       display: inline-flex;
+      align-items: center;
       border-radius: 8px;
       border: 1px solid rgba($clr-secondary, 0.2);
       border-top-right-radius: 50px;
       border-bottom-right-radius: 50px;
       height: 40px;
       input {
-        width: 323px;
+        min-width: 21.5em;
         border: 0;
         outline: 0;
         padding-inline: 1rem;
@@ -31,8 +33,8 @@
       }
       button {
         @extend .button;
-        min-width: 4em;
-        height: 39.999px;
+        min-width: 3.5em;
+        height: 40px;
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -45,15 +47,17 @@
   }
 
   nav {
+    flex-basis: 22em;
     ul {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      min-width: 20em;
+      gap: 2em;
       li {
         list-style: none;
         text-decoration: underline;
         color: $clr-primary;
+        text-underline-offset: 3px;
+        cursor: pointer;
         button {
           @extend .button;
           background: none;
@@ -80,6 +84,7 @@
 .profileText {
   @extend .text-normal;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .sidebar {
@@ -91,19 +96,19 @@
     padding-block: 1em;
 
     & a:first-child {
-      margin-bottom: 3em;
+      margin-bottom: 2em;
     }
     span {
       @extend .text-sm;
       color: $clr-primary;
-      padding-left: 2.375rem;
+      padding-left: 2.625rem;
     }
     > p {
       @extend .text-sm;
       font-weight: bold;
       text-transform: uppercase;
-      padding-left: 2.375rem;
-      padding-block: 1em;
+      padding-left: 2.625rem;
+      padding-block: 0.625rem;
     }
   }
 }
@@ -112,15 +117,18 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  min-height: 40px;
   height: 100%;
   color: inherit;
-  padding: 0.875rem 1.625rem;
+  padding-block: 0.625rem;
+  padding-left: 1.875rem;
+  margin-block: 0.625rem;
   transition: background 500ms;
   border: 3px solid transparent;
   white-space: nowrap;
+  cursor: pointer;
   &:hover {
     background-color: rgba($color: #39cdcc, $alpha: 0.06);
-    cursor: pointer;
     border-left: 3px solid #39cdcc;
   }
   > div {
@@ -130,35 +138,64 @@
     }
   }
 }
+.sidebaritemActive {
+  background-color: rgba($color: #39cdcc, $alpha: 0.06);
+  border-left: 3px solid #39cdcc;
+}
 
 .userRow {
-  @extend .text-sm;
-
-  td {
-    padding-block: 1.438rem;
-    padding-inline: 3.125rem;
-    box-sizing: content-box;
-    border-bottom: 1px solid #213f7d1a;
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba($clr-secondary, 0.1);
+    margin-block: 1.4em;
   }
+  .rowInner {
+    @extend .text-sm;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr 1fr 1fr 1fr;
+    padding-block: 1.875rem;
+    gap: 2.25rem;
+    a {
+      text-decoration: none;
+    }
+    .options {
+      position: relative;
+    }
+
+    .blacklist {
+      color: #e4033b;
+      background: rgba(hsl(345, 97%, 45%), 0.1);
+    }
+    .active {
+      color: #39cd62;
+      background: rgba(#39cd62, 0.1);
+    }
+    .pending {
+      background: rgba(#e9b200, 0.1);
+      color: #e9b200;
+    }
+  }
+
+  // div {
+  //   min-width: 20ch;
+  // }
 }
 
 .filterBtn {
-  margin-left: 0.625rem;
-  margin-block: auto;
-  height: 1rem;
-  aspect-ratio: 1;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .starContainer {
   display: flex;
   flex-direction: row;
+  margin-top: 8px;
   .star {
     margin: 0 2px;
   }
 }
 
 .infoGroup {
-  margin-block: 0.2em;
+  margin-block: 0.5em;
   h4 {
     @extend .text-xsm;
     text-transform: uppercase;
@@ -166,19 +203,19 @@
   }
   p {
     @extend .text-normal;
-    font-weight: bold;
+    color: $clr-secondary;
     text-transform: capitalize;
   }
 }
 
 .navBack {
-  @extend .text-sm;
+  @extend .text-normal;
   display: flex;
   align-items: center;
   text-decoration: none;
 
   svg {
-    margin-right: 13px;
+    margin-right: 0.75em;
   }
 
   &:visited {
@@ -189,10 +226,6 @@
 .tabList {
   display: flex;
   justify-content: space-between;
-  .activeTab {
-    color: #39cdcc;
-    border-bottom: 2px solid $clr-accent;
-  }
 
   li {
     list-style: none;
@@ -211,6 +244,12 @@
       a {
         text-decoration: none;
       }
+    }
+  }
+  .activeTab {
+    border-bottom: 2px solid $clr-accent;
+    button a {
+      color: $clr-accent;
     }
   }
 }
