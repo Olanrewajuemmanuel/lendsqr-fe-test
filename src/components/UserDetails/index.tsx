@@ -2,7 +2,7 @@
 
 import styles from "./styles.module.scss";
 import GenericProfileImg from "@/assets/icons/generic.svg";
-import { Status, User } from "@/types";
+import { Status } from "@/types";
 import ImageWithFallback from "../UI/ImageWithFallback";
 import StarRating from "../UI/StarRating";
 import Tab from "../Tab";

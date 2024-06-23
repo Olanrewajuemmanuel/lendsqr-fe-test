@@ -3,10 +3,20 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { describe } from "node:test";
 import Login from "@/components/Login/index";
 
+
+
+jest.mock("next/navigation", () => ({
+    useRouter() {
+        return {
+            prefetch: () => null
+        };
+    }
+}));
+
 describe("describe the Login page", () => {
     it('should render the login page', () => {
-        render(<Login />);
 
+        render(<Login />)
         const welcomeElem = screen.getByTestId('welcomeText');
         const welcomeText = "Enter details to login.";
 
@@ -44,7 +54,7 @@ describe("describe the Login page", () => {
         fireEvent.click(screen.getByText(/log in/i));
 
         await waitFor(() => {
-            expect(screen.getByText(/invalid email or password/i)).toBeInTheDocument();
+            expect(screen.getByText(/invalid credentials/i)).toBeInTheDocument();
         });
     });
 })

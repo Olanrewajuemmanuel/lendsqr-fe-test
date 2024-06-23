@@ -19,7 +19,7 @@ export default function UserRow({ organisationName, username, email, phoneNumber
     const [isVisible, setIsVisible] = useState(false);
     return (
 
-        <div className={styles.userRow}>
+        <div className={styles.userRow} data-testid="row">
             <div className={styles.rowInner}>
                 <div>
                     <Link href={`users/${username}`}>

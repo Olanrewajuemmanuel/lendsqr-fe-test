@@ -62,6 +62,9 @@
   @extend .button;
   min-width: 65%;
   text-transform: uppercase;
+  &:disabled {
+    background: rgba($clr-secondary, 0.15);
+  }
 }
 
 .showPasswordText {

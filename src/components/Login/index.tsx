@@ -13,6 +13,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [message, setMessage] = useState('')
+    const [enableBtn, setEnableBtn] = useState(false);
 
     const router = useRouter()
 
@@ -20,7 +21,11 @@ export default function Login() {
         if (localStorage.getItem("lendsqrUser")) {
             router.push("/")
         }
-    }, [router])
+        if (email && password) { setEnableBtn(true); } else {
+            setEnableBtn(false)
+        }
+    }, [router, email, password])
+
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -30,11 +35,12 @@ export default function Login() {
             setTimeout(() => setMessage(''), 3000)
             return;
         }
-
+        setEnableBtn(false);
         const user = await login(email, password);
         if (!user) {
             setMessage("Invalid credentials provided")
             setTimeout(() => setMessage(''), 3000)
+            setEnableBtn(true)
             return;
         }
 
@@ -61,7 +67,7 @@ export default function Login() {
                 {message && <p className={styles.messageLogin}>{message}</p>}
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <h2 className={styles['text-heading']}>Welcome!</h2>
-                    <p className={styles["welcome-p"]}>Enter details to login.</p>
+                    <p className={styles["welcome-p"]} data-testid="welcomeText">Enter details to login.</p>
                     <div>
                         <input type="email" name="Email" placeholder="Email" id="" onChange={(e) => setEmail(e.target.value)} required />
                     </div>
@@ -73,7 +79,7 @@ export default function Login() {
                         <p className={styles.accentText} role="button">FORGOT PASSWORD?</p>
                     </div>
                     <div>
-                        <button className={styles.loginBtn}>Log in</button>
+                        <button className={styles.loginBtn} disabled={!enableBtn}>Log in</button>
                     </div>
                 </form>
             </main>
