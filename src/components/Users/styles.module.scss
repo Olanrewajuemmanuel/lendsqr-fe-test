@@ -25,6 +25,7 @@
       p {
         @extend .text-sm;
         text-transform: uppercase;
+        white-space: nowrap;
         margin-top: 0.625rem;
         &:last-child {
           @extend .text-lg;
@@ -45,6 +46,7 @@
     border-radius: 4px;
     border: 1px solid rgba(33, 63, 125, 0.06);
     border-radius: 4px;
+
     .thead {
       @extend .text-xsm;
       font-weight: 600;
@@ -73,6 +75,59 @@
       outline: 0;
       cursor: pointer;
       background-color: transparent;
+    }
+  }
+}
+
+// @media ((min-width: 48em) and (max-width: 55em)) {
+//   .usersContainer {
+//     .user {
+//       div {
+//         flex-basis: calc(100 / 2) !important;
+//         padding: 0;
+//       }
+//     }
+//   }
+// }
+
+@media (max-width: 60em) {
+  .usersContainer {
+    > div {
+      gap: 0.5em;
+      flex-wrap: wrap;
+
+      div {
+        flex-basis: calc(50%);
+      }
+    }
+  }
+  .section {
+    .table {
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar {
+        width: 15px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        height: 3px;
+        background: rgba($color: $clr-secondary, $alpha: 0.9);
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+@media ((min-width: 60em) and (max-width: 64em)) {
+  .usersContainer {
+    > div {
+      row-gap: 1em;
+      flex-wrap: wrap;
+
+      div {
+        flex-basis: calc(100%) / 3;
+        flex-wrap: wrap;
+      }
     }
   }
 }

@@ -1,7 +1,5 @@
+import AppLayout from "@/components/AppLayout";
 import AuthProvider from "@/components/AuthProvider";
-import styles from "@/components/Dashboard/styles.module.scss"
-import Header from "@/components/UI/Header";
-import SideBar from "@/components/UI/SideBar";
 import type { Metadata } from "next";
 
 
@@ -17,13 +15,9 @@ export default function DashboardLayout({
 }>) {
     return (
         <AuthProvider>
-            <Header />
-            <div className={styles.flex}>
-                <SideBar />
-                <main className={styles.main}>
-                    {children}
-                </main>
-            </div>
+            <AppLayout>
+                {children}
+            </AppLayout>
 
         </AuthProvider>
     );

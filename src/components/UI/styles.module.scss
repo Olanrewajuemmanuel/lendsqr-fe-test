@@ -90,6 +90,7 @@
 .sidebar {
   min-width: clamp(250px, 283px, 300px);
   box-shadow: 3px 0px 5px #fcfafa;
+  transition: margin 300ms ease;
 
   section {
     color: $clr-secondary;
@@ -174,10 +175,6 @@
       color: #e9b200;
     }
   }
-
-  // div {
-  //   min-width: 20ch;
-  // }
 }
 
 .filterBtn {
@@ -251,5 +248,59 @@
     button a {
       color: $clr-accent;
     }
+  }
+}
+
+@media ((min-width: 30em) and (max-width: 48em)) {
+  .header {
+    justify-content: space-between;
+    padding-inline: 0.8em;
+    // render elements invisible
+    form {
+      display: none;
+    }
+    a {
+      min-width: 72px;
+      margin-inline: 2rem 0.875rem;
+      flex-basis: 60%;
+    }
+    .menu {
+      display: block;
+      button {
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        span {
+          display: block;
+          width: 100%;
+          height: 3px;
+          margin-block: 7px;
+          background: rgba($clr-primary, 0.9);
+        }
+      }
+    }
+
+    nav {
+      ul {
+        gap: 1em;
+      }
+    }
+  }
+  .open {
+    margin-right: 0;
+  }
+  .close {
+    margin-left: -1000px;
+  }
+  .sidebar {
+    position: absolute;
+    z-index: 99;
+    background: #fff;
+  }
+  .tabList li {
+    font-size: 0.875em;
+    padding-block: 0;
   }
 }

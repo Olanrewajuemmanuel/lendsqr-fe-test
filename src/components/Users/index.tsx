@@ -73,7 +73,7 @@ export default function Users() {
     return (
         <div className={styles.usersContainer}>
             <h3>Users</h3>
-            <div>
+            <div className={styles.user}>
                 <div>
                     <Image src={UsersImg} alt="" width={40} />
                     <p>Users</p>
