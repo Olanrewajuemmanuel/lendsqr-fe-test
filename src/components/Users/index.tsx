@@ -96,28 +96,31 @@ export default function Users() {
                 </div>
             </div>
             <section className={styles.section} role="presentation">
-                <div className={styles.table} role="table">
-                    <div className={styles.thead}>
-                        <div className={styles.filter}><p>Organization </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} />
-                            {/* Set Filter view only on first child */}
-                            <Filter display={filterMode} onSubmit={handleSubmit} />
-                        </div>
-                        <div><p>Username </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
-                        <div><p>Email </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
-                        <div><p>Phone Number </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
-                        <div><p>Date Joined </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
-                        <div><p>Status </p><FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div>
-                    </div>
-                    <div className={styles.tbody}>
-                        {/* <!-- Rows of user data will go here --> */}
-                        {
-                            userRows.map(user =>
-                                <Suspense fallback={<Skeleton count={10} height={5} />} key={user._id}>
-                                    <UserRow organisationName={user.organisation.name} username={user.username} email={user.email} phoneNumber={user.phone} dateJoined={formatDateString(user.registered)} status={user.status} />
-                                </Suspense>
-                            )
-                        }
-                    </div>
+                <div className={styles.tableWrapper}>
+                    <table className={styles.table} role="table">
+                        <thead >
+                            <tr>
+                                <th className={styles.filter}><div>Organization <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} />
+                                    {/* Set Filter view only on first child */}
+                                    <Filter display={filterMode} onSubmit={handleSubmit} /></div></th>
+                                <th><div>Username <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div></th>
+                                <th><div>Email <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div></th>
+                                <th><div>Phone Number <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div></th>
+                                <th><div>Date Joined <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div></th>
+                                <th><div>Status <FilterBtn toggleFilterModeFn={setFilterMode} filterMode={filterMode} /></div></th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            {/* <!-- Rows of user data will go here --> */}
+                            {
+                                userRows.map(user =>
+                                    <Suspense fallback={<Skeleton count={10} height={5} />} key={user._id}>
+                                        <UserRow organisationName={user.organisation.name} username={user.username} email={user.email} phoneNumber={user.phone} dateJoined={formatDateString(user.registered)} status={user.status} />
+                                    </Suspense>
+                                )
+                            }
+                        </tbody>
+                    </table>
                 </div>
                 {/* Replace with custom number */}
                 <TableFooter rowsPerPage={10} onPageChange={handlePageChange} />

@@ -5,11 +5,11 @@
   justify-content: space-between;
   align-content: center;
   margin-top: 20px;
-  height: 30px;
 
   div {
     @extend .text-sm;
     display: flex;
+    align-items: center;
     gap: 0.5rem;
     white-space: nowrap;
   }
@@ -21,6 +21,7 @@
     select {
       cursor: pointer;
       width: 100%;
+      min-height: 30px;
       background-color: #213f7d1a;
       color: $clr-secondary;
       font-weight: bold;
@@ -73,5 +74,14 @@
     .disabled {
       opacity: 0.5;
     }
+  }
+}
+
+@media (max-width: 48em) {
+  .tableFooter {
+    display: block;
+  }
+  .paginateWrapper {
+    margin-top: 2em;
   }
 }

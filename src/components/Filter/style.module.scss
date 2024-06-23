@@ -7,13 +7,15 @@
   background-color: #fff;
   min-width: 270px;
   position: absolute;
-  top: 150%;
+  top: 80.9999%;
   z-index: 99;
   border-radius: 4px;
   padding: 1.875em 1.25em;
 
   .formGroup {
-    margin-block: 1.25rem;
+    &:not(:first-child) {
+      margin-block: 1.25rem;
+    }
     & > * {
       display: block;
     }
