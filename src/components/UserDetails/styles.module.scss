@@ -75,8 +75,8 @@
       .middle {
         flex-basis: 20%;
         padding-inline: 1.875rem;
-        border-right: 1px solid $clr-secondary;
-        border-left: 1px solid $clr-secondary;
+        border-right: 1px solid rgba($color: $clr-secondary, $alpha: 0.14);
+        border-left: 1px solid rgba($color: $clr-secondary, $alpha: 0.14);
       }
       .right {
         padding-inline: 2rem;
@@ -123,5 +123,52 @@
     gap: 1em;
     padding-block: 1.875rem;
     width: min(714px, 100%);
+  }
+}
+
+@media ((min-width: 30em) and (max-width: 48em)) {
+  .container {
+    .navigation {
+      display: block;
+      margin-block: 1.25rem;
+      h3 {
+        width: 100%;
+        padding-block: 1.875rem;
+      }
+      div {
+        .button {
+          margin-inline: 0;
+          margin-right: 26px;
+        }
+      }
+    }
+
+    .profileContainer {
+      .profile {
+        display: block;
+        > div {
+          margin-block: 2rem;
+        }
+        .middle {
+          border: 0;
+          padding: 0;
+        }
+        .right {
+          padding-inline-start: 0;
+        }
+      }
+    }
+    .summary {
+      section {
+        > div {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+    .guarantor {
+      > div {
+        flex-basis: 50%;
+      }
+    }
   }
 }

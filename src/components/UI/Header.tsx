@@ -10,13 +10,20 @@ import { roboto400 } from "@/app/fonts";
 import { useEffect, useState } from "react";
 
 
-export default function Header() {
+export default function Header({ toggleSideBar }: { toggleSideBar: any }) {
     const [userName, setUserName] = useState("");
     useEffect(() => {
         setUserName(localStorage.getItem("lendsqrUser")!)
     }, [])
     return (
         <header className={styles.header}>
+            <div className={styles.menu} aria-description="Menu" aria-hidden>
+                <button onClick={toggleSideBar}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <a href="/"><Image src={Logo} alt="" width={144.8} ></Image></a>
             <form action="">
                 <div>
@@ -44,6 +51,7 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
+
         </header>
     )
 }

@@ -77,3 +77,36 @@
   @extend .message;
   padding-top: 1rem;
 }
+
+@media (max-width: 36em) {
+  .container {
+    display: block;
+    background: #fff;
+    .firstDiv {
+      .header {
+        padding: 1.875em;
+      }
+      padding: 0;
+      & > img {
+        display: none;
+      }
+    }
+    .form {
+      margin: 1em 1.875em;
+      .welcome-p {
+        margin-block: 0.25em;
+      }
+      div {
+        input {
+          min-width: 100%;
+        }
+        .loginBtn {
+          min-width: 100%;
+        }
+      }
+    }
+  }
+  .showPasswordText {
+    right: 0;
+  }
+}
