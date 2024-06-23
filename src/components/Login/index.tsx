@@ -20,7 +20,7 @@ export default function Login() {
         if (localStorage.getItem("lendsqrUser")) {
             router.push("/")
         }
-    }, [])
+    }, [router])
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();

@@ -15,10 +15,10 @@ export default async function Page({ params }: Readonly<{ params: { slug: string
     )
 }
 
-// export async function generateStaticParams() {
-//     const users = await findAll(500);
+export async function generateStaticParams() {
+    const users = await findAll(500);
 
-//     return users.map((user: { username: any; }) => ({
-//         slug: user.username,
-//     }))
-// }
+    return users.map((user: { username: any; }) => ({
+        slug: user.username,
+    }))
+}

@@ -23,7 +23,7 @@ export async function login(email: string, password: string) {
   // Mock API call to DB
   if (email.toLowerCase() === adminUser.get("email")) {
     // compare passwords
-    if (!password === adminUser.get("password")) return false;
+    if (password !== adminUser.get("password")) return false;
     return adminUser; // login successful
   } else {
     return false;
