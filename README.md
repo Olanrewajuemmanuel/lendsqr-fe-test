@@ -25,7 +25,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Login (as admin) using the following credentials:
 
 Email: adedeji@lendsqr.com
-Password: adedeji
+Password: lendsqr-test
 
 ## Deployment information
 
