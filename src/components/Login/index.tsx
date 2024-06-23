@@ -7,6 +7,7 @@ import Pablo from "@/assets/pablo.png"
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { findAll, login } from "@/lib/actions/users";
+import { avenirNext400, avenirNext700 } from "@/app/fonts";
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -66,8 +67,8 @@ export default function Login() {
             <main className={styles.main}>
                 {message && <p className={styles.messageLogin}>{message}</p>}
                 <form className={styles.form} onSubmit={handleSubmit}>
-                    <h2 className={styles['text-heading']}>Welcome!</h2>
-                    <p className={styles["welcome-p"]} data-testid="welcomeText">Enter details to login.</p>
+                    <h2 className={`${styles['text-heading']} ${avenirNext700.className}`}>Welcome!</h2>
+                    <p className={`${styles["welcome-p"]} ${avenirNext400.className}`} data-testid="welcomeText">Enter details to login.</p>
                     <div>
                         <input type="email" name="Email" placeholder="Email" id="" onChange={(e) => setEmail(e.target.value)} required />
                     </div>
