@@ -1,1 +1,151 @@
-$clr-primary: #ddd; // placeholder value
+$clr-primary: #213f7d;
+$clr-secondary: #545f7d;
+$clr-accent: #39cdcc;
+$clr-neutral-white: #fff;
+$clr-neutral-shade--one: #fbfbfb;
+$clr-primary-shade: hsla(220, 58%, 31%, 0.1);
+$clr-semantic-focus: hsla(180, 60%, 51%, 1);
+$clr-semantic-danger: #e4033b;
+$clr-rating-gold: #e9b200;
+
+$fs-normal: 1rem;
+$fs-medium: 1.25rem;
+$fs-small--one: 0.875rem;
+$fs-small--two: 0.75rem;
+$fs-heading: 2.5rem;
+$fs-large--one: 1.5rem;
+$fs-large--two: 1.375rem;
+
+/* Mixins */
+@mixin even-columns {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Utility classes */
+
+.sidebar {
+  max-width: 283px;
+}
+
+.text-heading {
+  font-weight: 700;
+  font-size: $fs-heading;
+  color: $clr-primary;
+}
+
+.text-xl {
+  font-weight: 500;
+  font-size: $fs-large--one;
+  color: $clr-primary;
+}
+
+.text-lg {
+  font-weight: 500;
+  font-size: $fs-large--two;
+  color: $clr-primary;
+}
+
+.text-md {
+  font-weight: 400;
+  font-size: $fs-medium;
+  color: $clr-secondary;
+}
+
+.text-normal {
+  font-weight: 400;
+  font-size: $fs-normal;
+  color: $clr-secondary;
+}
+.text-sm {
+  font-weight: 400;
+  font-size: $fs-small--one;
+  color: $clr-secondary;
+}
+
+.text-sm-primary {
+  font-weight: 400;
+  font-size: $fs-small--one;
+  color: $clr-primary;
+}
+
+.text-xsm {
+  font-weight: 400;
+  font-size: $fs-small--two;
+  color: $clr-secondary;
+}
+
+.flex {
+  display: flex;
+}
+
+.button {
+  min-width: min(447px, 100%);
+  height: 50px;
+  border-radius: 8px;
+  outline: 0;
+  border: 0;
+  color: $clr-neutral-white;
+  background-color: $clr-accent;
+  cursor: pointer;
+}
+.button:hover,
+.button [role="button"] {
+  opacity: 0.9;
+}
+
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+
+.shadow-md {
+  box-shadow: 3px 5px 20px 0 #0000000a;
+}
+
+.message {
+  @extend .text-normal;
+  min-width: (20em, 100%);
+  background-color: $clr-accent;
+  color: #fff;
+  padding: 0.75em;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.pill {
+  border-radius: 100px;
+  height: 1.875rem;
+  background: rgba($clr-secondary, 10%);
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 7px 13px;
+}
+
+@media (max-width: 36em) {
+  .text-heading {
+    font-size: $fs-heading/1.2;
+  }
+
+  .text-xl {
+    font-size: $fs-large--one/1.2;
+  }
+
+  .text-lg {
+    font-size: $fs-large--two/1.2;
+  }
+
+  .text-md {
+    font-size: $fs-medium/1.2;
+  }
+  .button {
+    font-size: $fs-normal;
+    min-width: min(350px, 100%);
+    display: flex;
+    align-items: center;
+  }
+}

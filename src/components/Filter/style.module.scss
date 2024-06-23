@@ -1,0 +1,53 @@
+@import "../../styles/globals.scss";
+
+.filterContainer {
+  @extend .text-sm;
+  @extend .shadow-md;
+  border: 1px solid rgba($clr-secondary, 0.14);
+  background-color: #fff;
+  min-width: 270px;
+  position: absolute;
+  top: 150%;
+  z-index: 99;
+  border-radius: 4px;
+  padding: 1.875em 1.25em;
+
+  .formGroup {
+    margin-block: 1.25rem;
+    & > * {
+      display: block;
+    }
+    label {
+      text-transform: capitalize;
+      margin-bottom: 6px;
+    }
+    input,
+    select {
+      min-height: 40px;
+      width: 100%;
+      border: 1px solid rgba($clr-secondary, 0.2);
+      border-radius: 8px;
+      padding-inline: 1.25em;
+      outline: 0;
+
+      &:focus {
+        border: 3px solid rgba($clr-secondary, 0.2);
+      }
+    }
+  }
+  .buttonGroup {
+    button {
+      @extend .button;
+      min-width: calc(50% - 0.625em);
+
+      font-weight: 600;
+
+      &:first-child {
+        background: #fff;
+        color: $clr-secondary;
+        border: 1px solid rgba($clr-secondary, 0.14);
+        margin-right: 0.625rem;
+      }
+    }
+  }
+}

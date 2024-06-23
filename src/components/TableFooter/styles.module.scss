@@ -1,0 +1,77 @@
+@import "../../styles/globals.scss";
+
+.tableFooter {
+  @include even-columns;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 20px;
+  height: 30px;
+
+  div {
+    @extend .text-sm;
+    display: flex;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .selectWrapper {
+    position: relative;
+    background: #213f7d1a;
+    min-width: min(48px, 100%);
+    select {
+      cursor: pointer;
+      width: 100%;
+      background-color: #213f7d1a;
+      color: $clr-secondary;
+      font-weight: bold;
+      border-radius: 4px;
+      outline: 0;
+      border: 0;
+      &:after {
+        position: absolute;
+        content: "";
+        top: 14px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #fff transparent transparent transparent;
+      }
+    }
+  }
+}
+
+.paginateWrapper {
+  .paginateContainer {
+    display: flex;
+    gap: 20px;
+    li {
+      @extend .text-normal;
+      list-style: none;
+      color: $clr-secondary;
+      cursor: pointer;
+    }
+    .paginateLabel {
+      padding: 5px;
+      height: 24px;
+      width: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      outline: 0;
+      border-radius: 4px;
+      background: #213f7d1a;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .paginateActive {
+      font-weight: bold !important;
+    }
+    .disabled {
+      opacity: 0.5;
+    }
+  }
+}

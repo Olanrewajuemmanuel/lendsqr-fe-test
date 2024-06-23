@@ -1,0 +1,8 @@
+@import "../../styles/globals.scss";
+
+.dashboardContainer {
+  h2 {
+    @extend .text-lg;
+    margin-block: 1.875rem;
+  }
+}

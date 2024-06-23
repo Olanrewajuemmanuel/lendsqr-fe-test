@@ -1,0 +1,112 @@
+@import "../../styles/globals.scss";
+
+.container {
+  @include even-columns;
+
+  background: linear-gradient(
+    to bottom left,
+    $clr-neutral-shade--one,
+    $clr-neutral-white
+  );
+}
+.firstDiv {
+  padding-left: 4rem;
+}
+
+.header {
+  padding: 5em 3em;
+}
+
+.main {
+  --width: 704px;
+  --hor-padding: 100px;
+  background: $clr-neutral-white;
+  min-width: min(var(--width), 60% - var(--hor-padding));
+}
+.form {
+  margin-top: 8rem;
+  margin-left: 6.25rem;
+
+  & div {
+    margin-block: 1.5rem;
+    input {
+      min-width: min(447px, 65%);
+      height: 50px;
+      border: 2px solid rgba($clr-secondary, 0.15);
+      padding-inline-start: 1rem;
+      border-radius: 5px;
+      &:focus {
+        background: $clr-neutral-white;
+        outline: 0;
+      }
+    }
+  }
+}
+
+.welcome-p {
+  @extend .text-md;
+  margin-block: 0.625em 1em;
+  height: 50px;
+}
+
+.accentText {
+  @extend .text-xsm;
+  max-width: fit-content;
+  color: $clr-accent;
+  font-weight: 600;
+  letter-spacing: 10%;
+  cursor: pointer;
+}
+
+.loginBtn {
+  @extend .button;
+  min-width: 65%;
+  text-transform: uppercase;
+}
+
+.showPasswordText {
+  @extend .accentText;
+  display: inline-block;
+  padding-inline: 1rem;
+  position: absolute;
+  top: 35%;
+  right: 35%;
+}
+
+.messageLogin {
+  @extend .message;
+  padding-top: 1rem;
+}
+
+@media (max-width: 36em) {
+  .container {
+    display: block;
+    background: #fff;
+    .firstDiv {
+      .header {
+        padding: 1.875em;
+      }
+      padding: 0;
+      & > img {
+        display: none;
+      }
+    }
+    .form {
+      margin: 1em 1.875em;
+      .welcome-p {
+        margin-block: 0.25em;
+      }
+      div {
+        input {
+          min-width: 100%;
+        }
+        .loginBtn {
+          min-width: 100%;
+        }
+      }
+    }
+  }
+  .showPasswordText {
+    right: 0;
+  }
+}
